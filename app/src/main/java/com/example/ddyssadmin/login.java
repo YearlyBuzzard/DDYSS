@@ -23,7 +23,7 @@ public class login extends AppCompatActivity {
     Intent i;
     EditText Email, Password;
     String email, password;
-    Button Btn_login, Btn_registro;
+    Button Btn_login;
 
 
     @Override
@@ -38,19 +38,23 @@ public class login extends AppCompatActivity {
         Btn_login = (Button) findViewById(R.id.loginBtn);
 
 
-
-
         Btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 email = Email.getText().toString();
                 password = Password.getText().toString();
-                loginUser(email, password);
+
+                if (!email.isEmpty() && !password.isEmpty()) {
+                    loginUser();
+                }
+                else {
+                    Toast.makeText(login.this, "Complete los campos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
-    private void loginUser(String email, String password) {
+    private void loginUser() {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -58,10 +62,22 @@ public class login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             i = new Intent(login.this, Dashboard_admin.class);
                             startActivity(i);
+                            finish();
+                            Toast.makeText(login.this, "Usuario Logueado", Toast.LENGTH_SHORT).show();
                         } else {
                             mensaje = Toast.makeText(login.this, "Ingrese contraseña y correo de manera correcta", Toast.LENGTH_LONG);
                         }
                     }
                 });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (mAuth.getCurrentUser() != null) {
+            startActivity(new Intent(login.this, Dashboard_admin.class));
+            finish();
+        }
     }
 }

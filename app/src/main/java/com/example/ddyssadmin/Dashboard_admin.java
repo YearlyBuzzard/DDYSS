@@ -12,7 +12,9 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class Dashboard_admin extends AppCompatActivity {
 
+
     Home_Admin Padmin = new Home_Admin();
+    ProfileUser UserProfile = new ProfileUser();
     FloatingActionButton crear;
     BottomNavigationView bottomnavigationView;
 
@@ -33,6 +35,9 @@ public class Dashboard_admin extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, Padmin).commit();
+                        return true;
+                    case R.id.account:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, UserProfile).commit();
                         return true;
                 }
                 return false;
