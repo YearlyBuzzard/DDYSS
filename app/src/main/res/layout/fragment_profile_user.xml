@@ -32,7 +32,8 @@
                 android:text="Wiliam Snoe"
                 android:textColor="#fff"
                 android:textSize="21sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:id="@+id/txtuser"/>
         </LinearLayout>
     </RelativeLayout>
 
@@ -42,27 +43,8 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_marginTop="45dp">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_email"/>
-            <TextView
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
 
-                android:text="Wiliam@gmail.com"/>
-        </LinearLayout>
         <LinearLayout
-            android:layout_marginTop="25dp"
             android:orientation="horizontal"
             android:paddingLeft="25dp"
             android:layout_width="match_parent"
@@ -72,6 +54,28 @@
                 android:layout_height="36dp"
                 android:src="@drawable/ic_account_circle"/>
             <TextView
+                android:id="@+id/txtname"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="Hola"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_email"/>
+            <TextView
+                android:id="@+id/txtemail"
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
@@ -91,6 +95,7 @@
                 android:layout_height="36dp"
                 android:src="@drawable/ic_round_contact_phone_24"/>
             <TextView
+                android:id="@+id/txtnumber"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:layout_gravity="center_vertical"
@@ -131,6 +136,7 @@
         android:text="Follow Me"/>
 
     <Button
+        android:id="@+id/btnLogout"
         android:textColor="#fff"
         android:background="@drawable/bg"
         android:layout_marginTop="35dp"
